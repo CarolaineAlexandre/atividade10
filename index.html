@@ -5,10 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primeiro passos com Three.js</title>
+    <title>Primeiros passos com Three.js</title>
 </head>
 
 <body>
+    <script>
+        function myFunction()
+{
+var x;
+
+var cor=prompt("Escolha a cor violeta ou azul?");
+
+if (cor!=null)
+  {
+  x="Idade: " + idade + " anos.";
+  document.getElementById("demo").innerHTML=x;
+  }
+}
+    </script>
     <style>
         body {
             margin: 0;
@@ -24,7 +38,7 @@
 
         document.body.appendChild(renderer.domElement)
         const geometry = new THREE.BoxGeometry()
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const material = new THREE.MeshBasicMaterial({ color: 0xFF00FF});
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
 
@@ -35,7 +49,7 @@
 				requestAnimationFrame( animate );
 
 				cube.rotation.x += 0.01;
-				cube.rotation.y += 0.01;
+				cube.rotation.y += 0.02;
 
 				renderer.render( scene, camera );
 			};
