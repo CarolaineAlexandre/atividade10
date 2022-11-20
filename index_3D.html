@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem Three.js</title>
+</head>
+
+<body>
+    <script src="js/three.js"></script>
+    <script>
+        function myFunction() {
+            var x;
+
+            var cor = prompt("Escolha a cor violeta ou azul?");
+
+            if (cor != null) {
+                x = "Idade: " + idade + " anos.";
+                document.getElementById("demo").innerHTML = x;
+            }
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+
+    <script src="js/three.js"></script>
+    <script src="js/GLTFLoader.js"></script>
+    <script>
+        let scene, camera, renderer;
+        function init(){
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xdddddd);
+
+            camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight);
+            camera.rotation.y = 45/180*Math.PI;
+            camera.position.x = 800;
+            camera.position.z= 1000;
+            
+            hlight = new THREE.AmbientLight (0x404040,100);
+            scene.add(hlight);
+
+            renderer = new THREE.WebGLRenderer({antialias:true});
+            renderer.setSize(window.innerWidth,window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+                let loader = new THREE.GLTFLoader();
+                loader.load('scene.gltf', function(gltf){
+                    heart = gltf.scene.children[0];
+                    heart.scale.set(0.5,0.5,0.5);
+                    scene.add(gltf.scene);
+                    renderer.render(scene, camera);
+
+                });
+            }
+            init();
+    </script>
+
+</body>
+
+</html>

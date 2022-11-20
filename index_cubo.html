@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cubo Three.js</title>
+</head>
+
+<body>
+    <script>
+        function myFunction()
+{
+var x;
+
+var cor=prompt("Escolha a cor violeta ou azul?");
+
+if (cor!=null)
+  {
+  x="Idade: " + idade + " anos.";
+  document.getElementById("demo").innerHTML=x;
+  }
+}
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+
+    <script src="js/three.js"></script>
+    <script>
+        const scene = new THREE.Scene()
+        const camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight)
+        const renderer = new THREE.WebGLRenderer()
+        renderer.setSize(window.innerWidth, window.innerHeight)
+
+        document.body.appendChild(renderer.domElement)
+        const geometry = new THREE.BoxGeometry()
+        const material = new THREE.MeshBasicMaterial({ color: 0xFF00FF});
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        camera.position.z = 5;
+        renderer.render(scene, camera)
+
+        function animate() {
+				requestAnimationFrame( animate );
+
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.02;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+    </script>
+
+</body>
+
+</html>

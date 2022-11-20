@@ -1,0 +1,38 @@
+html {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #e8348b, #330f43);
+}
+
+.principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+button{
+  height: 100px;
+  width: 500px;
+  margin: 5px;
+  background:  #061d48;
+  font-size: 35px;
+  color: #ffffff;
+}
+
+.texto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 35px;
+  color: #ffffff;
+}
